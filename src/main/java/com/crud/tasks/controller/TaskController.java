@@ -22,22 +22,22 @@ public class TaskController {
     }
 
     @GetMapping("{id}")
-    public TaskDto getTask(@PathVariable("id") Long taskId){
-        return taskMapper.mapToTaskDto(service.getTaskById(taskId));
+    public TaskDto getTask(@PathVariable("id") Long taskId) throws TaskNotFoundException{
+        return taskMapper.mapToTaskDto(service.getTask(taskId).orElseThrow(TaskNotFoundException::new));
     }
 
     @DeleteMapping("{id}")
     public void deleteTask(@PathVariable("id") Long taskId){
-
+        service.deleteTask(taskId);
     }
 
-    @PutMapping("{id}")
-    public TaskDto updateTask(@PathVariable("id") Long taskId, @RequestBody String taskDto){
-        return new TaskDto(1L, "Edited test file", "Test content");
+    @PutMapping()
+    public TaskDto updateTask(@RequestBody TaskDto taskDto){
+        return taskMapper.mapToTaskDto(service.saveTask(taskMapper.mapToTask(taskDto)));
     }
 
-    @PostMapping()
-    public void createTask(@RequestBody String taskDto){
-
+    @PostMapping(consumes = "application/json")
+    public void createTask(@RequestBody TaskDto taskDto){
+        service.saveTask(taskMapper.mapToTask(taskDto));
     }
 }
