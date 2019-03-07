@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/v1/trello")
@@ -17,9 +18,14 @@ public class TrelloController {
     private TrelloClient trelloClient;
 
     @GetMapping
-    public void getTrelloBoards() {
+    public void getTrelloBoards(){
 
         List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
+
+        trelloBoards = trelloBoards.stream()
+                .filter(n -> n.getId()!=null&&n.getName()!=null)
+                .filter(n -> n.getName().contains("Kodilla"))
+                .collect(Collectors.toList());
 
         trelloBoards.forEach(trelloBoardDto -> System.out.println(trelloBoardDto.getId() + " " + trelloBoardDto.getName()));
 
