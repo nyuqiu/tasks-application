@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-public class BadgesDto {
+public class TrelloDto {
 
-    private int votes;
+    private int board;
 
-    private AttachmentsByTypeDto attachmentsByType;
+    private int card;
 }
