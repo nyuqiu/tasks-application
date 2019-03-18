@@ -1,6 +1,5 @@
 package com.crud.tasks.trello.client;
 
-import com.crud.tasks.controller.TrelloBoardNotFoundException;
 import com.crud.tasks.domain.TrelloBoardDto;
 import com.crud.tasks.domain.TrelloCardDto;
 import com.crud.tasks.mapper.CreatedTrelloCard;
@@ -39,11 +38,11 @@ public class TrelloClient {
         return url;
     }
 
-    public List<TrelloBoardDto> getTrelloBoards() throws TrelloBoardNotFoundException {
+    public List<TrelloBoardDto> getTrelloBoards() {
 
         TrelloBoardDto[] boardsResponse = restTemplate.getForObject(buildUrl(), TrelloBoardDto[].class);
 
-        return Optional.of(Arrays.asList(boardsResponse)).orElseThrow(TrelloBoardNotFoundException::new);
+        return Optional.of(Arrays.asList(boardsResponse)).orElse(Arrays.asList(new TrelloBoardDto[0]));
     }
 
     public CreatedTrelloCard createNewCard(TrelloCardDto trelloCardDto) {
