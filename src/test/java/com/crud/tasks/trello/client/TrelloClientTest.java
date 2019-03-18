@@ -62,7 +62,8 @@ public class TrelloClientTest {
     }
 
     @Test
-    public void shouldCreateCard() throws URISyntaxException {
+    public void shouldCreateCard() throws URISyntaxException{
+
         //Given
         TrelloCardDto trelloCardDto = new TrelloCardDto(
                 "Test task",
