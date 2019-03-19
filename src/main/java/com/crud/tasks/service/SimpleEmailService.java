@@ -30,7 +30,7 @@ public class SimpleEmailService {
     private SimpleMailMessage createMailMessage(final Mail mail) {
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setTo(mail.getMailTo());
-        if(!mail.getToCc().isEmpty()) {
+        if(!mail.getToCc().isEmpty() || !mail.getToCc().equals(null)) {
             mailMessage.setCc(mail.getToCc());
         }
         mailMessage.setSubject(mail.getSubject());
