@@ -32,8 +32,7 @@ public class EmailScheduler {
     }
 
     private String isPlural(long size) {
-        if (size > 1) return "s";
-        return "";
+        return size>0 ? "s" : "";
     }
 
 
