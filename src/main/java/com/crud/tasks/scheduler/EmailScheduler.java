@@ -27,13 +27,7 @@ public class EmailScheduler {
         simpleEmailService.send(new Mail(
                 adminConfig.getAdminMail(),
                 SUBJECT,
-                "Currently in database you got: " + size + " task"+isPlural(size)
+                "Currently in database you got: " + size + " task" + (size > 0 ? "s" : "")
         ));
     }
-
-    private String isPlural(long size) {
-        return size>0 ? "s" : "";
-    }
-
-
 }
