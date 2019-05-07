@@ -90,8 +90,7 @@ public class TrelloMapperTestSuite {
         //When
         TrelloCardDto mappedCardDto = trelloMapper.mapToCardDto(trelloCard);
         //Then
-
-
+        assertEquals(mappedCardDto.getName(), trelloCard.getName());
     }
 
     @Test
