@@ -10,12 +10,7 @@ import org.springframework.stereotype.Component;
 @Data
 public class AdminConfig {
 
-    @Value("${spring.mail.username}")
+    @Value("${admin.mail}")
     private String adminMail;
 
-//    @Value("#{environment.Email}")
-//    private String adminMail;
-
-    @Value("#{environment.Password}")
-    private String password;
 }
