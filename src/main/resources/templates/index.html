@@ -14,6 +14,15 @@
 
 <!--/*@thymesVar id="one" type="com.crud.tasks.controller.StaticWebPageController"*/-->
 <!--/*@thymesVar id="two" type="com.crud.tasks.controller.StaticWebPageController"*/-->
-<span th:text="${one} + ${two}"></span>
+<!--/*@thymesVar id="four" type="com.crud.tasks.controller.StaticWebPageController"*/-->
+<!--/*@thymesVar id="six" type="com.crud.tasks.controller.StaticWebPageController"*/-->
+<!--/*@thymesVar id=" " type="com.crud.tasks.controller.StaticWebPageController"*/-->
+<!--/*@thymesVar id="minus" type="com.crud.tasks.controller.StaticWebPageController"*/-->
+<!--/*@thymesVar id="times" type="com.crud.tasks.controller.StaticWebPageController"*/-->
+<!--/*@thymesVar id="plus" type="com.crud.tasks.controller.StaticWebPageController"*/-->
+<!--/*@thymesVar id="equal" type="com.crud.tasks.controller.StaticWebPageController"*/-->
+<span th:text="${two} + ' ' + ${times} + ' ' + ${two} + ' ' + ${equal} + ' ' +${four}"></span><br/>
+<span th:text="${two} + ' ' + ${times} + ' ' + ${two} + ' ' + ${plus} + ' ' + ${two} + ' ' + ${equal} + ' ' + ${four}"></span><br/>
+<span th:text="${two} + ' ' + ${minus} + ' ' + ${two} + ' ' + ${times} + ' ' + ${two} + ' ' + ${equal} + ' ' + ${minus}+${two}"></span><br/>
 </body>
 </html>
