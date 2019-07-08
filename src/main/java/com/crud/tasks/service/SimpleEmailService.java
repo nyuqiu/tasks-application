@@ -1,6 +1,5 @@
 package com.crud.tasks.service;
 
-import com.crud.tasks.config.AdminConfig;
 import com.crud.tasks.domain.Mail;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,9 +16,6 @@ public class SimpleEmailService {
 
     @Autowired
     private JavaMailSender javaMailSender;
-
-    @Autowired
-    private AdminConfig adminConfig;
 
     @Autowired
     private MailCreatorService mailCreatorService;

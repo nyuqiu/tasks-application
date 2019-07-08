@@ -4,7 +4,6 @@ import com.crud.tasks.config.AdminConfig;
 import com.crud.tasks.domain.Mail;
 import com.crud.tasks.repository.TaskRepository;
 import com.crud.tasks.service.MailCreatorService;
-import com.crud.tasks.service.SimpleEmailService;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,9 +21,6 @@ import org.springframework.stereotype.Component;
 public class EmailScheduler {
     private static final String SUBJECT = "Tasks: Once a day email";
     private static final Logger LOGGER = LoggerFactory.getLogger(SimpleMailMessage.class);
-
-    @Autowired
-    private SimpleEmailService simpleEmailService;
 
     @Autowired
     private JavaMailSender javaMailSender;
